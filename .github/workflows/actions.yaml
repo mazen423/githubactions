@@ -4,10 +4,10 @@ on :
   #  - cron: "0/3 * * * *"
   push:
     branches:
-      - master
+      - Master
   pull_request:
     branches:
-      - master
+      - Master
     types: [assigned,opened,reopened]
 jobs:
   run-github-actions:
