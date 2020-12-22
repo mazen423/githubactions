@@ -8,7 +8,7 @@ on :
   pull_request:
     branches:
       - Master
-    types: [assigned,opened,reopened]
+    #types: [assigned,opened,reopened]
 jobs:
   run-github-actions:
     runs-on : ubuntu-latest
