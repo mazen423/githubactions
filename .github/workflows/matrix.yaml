@@ -29,4 +29,4 @@ jobs:
       - name: node version after modification
         run : |
           node -v 
-          echo "IS_UBUNTU_7:$IS_UBUNTU_7
+          echo "IS_UBUNTU_7:"$IS_UBUNTU_7
