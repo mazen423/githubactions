@@ -4,8 +4,14 @@ jobs:
   node-version:
     strategy:
       matrix:
-        node_version: [6,7]
+        node_version: [6,7,8]
         os_type: [ubuntu-latest, windows-latest]
+        exclude: 
+          - os_type: ubuntu-latest
+            node_version: 6
+          - os_type: windows-latest
+            node_version: 8
+          
     runs-on : ${{matrix.os_type}}
     steps :
       - name: node version original 
