@@ -1,0 +1,32 @@
+name : matrix workflow
+on : [pull_request]
+jobs:
+  node-version:
+    strategy:
+      matrix:
+        node_version: [6,7,8]
+        os_type: [ubuntu-latest, windows-latest]
+        exclude: 
+          - os_type: ubuntu-latest
+            node_version: 6
+          - os_type: windows-latest
+            node_version: 8
+        include:
+          - os_type : ubuntu-latest
+            node_version: 7
+            is_ubuntu: "true"
+          
+    runs-on : ${{matrix.os_type}}
+    env:
+      IS_UBUNTU_7: ${{matrix.is_ubuntu}}
+    steps :
+      - name: node version original 
+        run : node -v 
+      - name : changing node version 
+        uses : actions/setup-node@v2
+        with : 
+          node-version: ${{matrix.node_version}}
+      - name: node version after modification
+        run : |
+          node -v 
+          echo "IS_UBUNTU_7:"$IS_UBUNTU_7
