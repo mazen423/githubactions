@@ -1,8 +1,12 @@
 name: shell commands 
-on : [push]
+on : [pull_request]
+
 jobs:
     run-shell-command:
+        
         runs-on: ubuntu-latest
+        env: 
+          working : ${{ github.base_ref }}
         steps:
             - name: echo string 
               run : echo "hello world"
@@ -10,6 +14,7 @@ jobs:
               run : |
                   node -v 
                   npm -v 
+                  echo $working
             - name : python command 
               run : |
                   import platform

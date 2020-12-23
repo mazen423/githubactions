@@ -1,4 +1,5 @@
 name : run docker container in work flow 
+#here all our steps of the job will run in container instead of VM directly 
 on : [push]
 jobs:
   node-docker:
